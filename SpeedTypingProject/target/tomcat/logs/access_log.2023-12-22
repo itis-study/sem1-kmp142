@@ -1,0 +1,16 @@
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:02 +0300] "GET /SpeedTypingProject HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:03 +0300] "GET /SpeedTypingProject/ HTTP/1.1" 200 52 http-bio-8080-exec-2 211
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:03 +0300] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 - http-bio-8080-exec-4 0
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:03 +0300] "GET /apple-touch-icon.png HTTP/1.1" 404 - http-bio-8080-exec-5 0
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:03 +0300] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:11 +0300] "GET /SpeedTypingProject/ HTTP/1.1" 200 52 http-bio-8080-exec-7 2
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:11 +0300] "GET /SpeedTypingProject/typing HTTP/1.1" 200 5420 http-bio-8080-exec-8 139
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:19 +0300] "POST /SpeedTypingProject/typing HTTP/1.1" 200 - http-bio-8080-exec-9 1
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:29 +0300] "POST /SpeedTypingProject/typing HTTP/1.1" 200 - http-bio-8080-exec-10 2
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:33 +0300] "POST /SpeedTypingProject/typing HTTP/1.1" 200 - http-bio-8080-exec-10 2
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:43 +0300] "POST /SpeedTypingProject/typing HTTP/1.1" 200 - http-bio-8080-exec-10 2
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:09:58 +0300] "POST /SpeedTypingProject/typing HTTP/1.1" 200 - http-bio-8080-exec-10 1
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:10:03 +0300] "POST /SpeedTypingProject/typing HTTP/1.1" 200 - http-bio-8080-exec-10 2
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:10:08 +0300] "POST /SpeedTypingProject/typing HTTP/1.1" 200 - http-bio-8080-exec-10 2
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:10:25 +0300] "POST /SpeedTypingProject/typing HTTP/1.1" 200 - http-bio-8080-exec-10 2
+0:0:0:0:0:0:0:1 - - [22/Dec/2023:15:10:37 +0300] "POST /SpeedTypingProject/typing HTTP/1.1" 200 - http-bio-8080-exec-10 1

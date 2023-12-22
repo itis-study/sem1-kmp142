@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="script.js"></script>
+  <title>Calculator</title>
+  <style>
+    body {
+      background: gray;
+    }
+  </style>
+</head>
+<body>
+
+<div class="arrangement_no>">
+  <input id="n1" type="number" placeholder="n">
+  <input id="k1" type="number" placeholder="k">
+  <button type="button" onclick="onClick1()">Размещения без повторений</button>
+  <input id="result1" placeholder="result">
+</div>
+
+<div class="permutation_no">
+  <input id="n2" type="number" placeholder="n">
+  <button type="button" onclick="onClick2()">Перестановки без повторений</button>
+  <input id="result2" placeholder="result">
+</div>
+
+<div class="combination_no">
+  <input id="n3" type="number" placeholder="n">
+  <input id="k3" type="number" placeholder="k">
+  <button type="button" onclick="onClick3()">Сочетания без повторений</button>
+  <input id="result3" placeholder="result">
+</div>
+
+<div class="arrangement_yes>">
+  <input id="n4" type="number" placeholder="n">
+  <input id="k4" type="number" placeholder="k">
+  <button type="button" onclick="onClick4()">Размещения с повторениями</button>
+  <input id="result4" placeholder="result">
+</div>
+
+<div class="permutation_yes">
+  <input id="n5" type="number" placeholder="n">
+  <input id="permutations5" type="text" placeholder="permutations">
+  <button type="button" onclick="onClick5()">Перестановки с повторениями</button>
+  <input id="result5" placeholder="result">
+</div>
+
+<div class="combination_yes">
+  <input id="n6" type="number" placeholder="n">
+  <input id="k6" type="number" placeholder="k">
+  <button type="button" onclick="onClick6()">Сочетания с повтореними</button>
+  <input id="result6" placeholder="result">
+</div>
+
+<div class="first-urn-model">
+  <span>Первая урновая модель:</span><br>
+  <span> Всего: </span>
+  <input id="n7" type="number" placeholder="n">
+  <span> отмеченных: </span>
+  <input id="m7" type="number" placeholder="m">
+  <span> извлекаются: </span>
+  <input id="k7" type="number" placeholder="k">
+  <span></span>
+  <button type="button" onclick="onClick3_urn()">Вычислить</button>
+  <input id="result7" placeholder="result">
+</div>
+
+<div class="second-urn-model">
+  <span>Вторая урновая модель:</span><br>
+  <span> Всего: </span>
+  <input id="n8" type="number" placeholder="n">
+  <span> отмеченных: </span>
+  <input id="m8" type="number" placeholder="m">
+  <span> извлекаются: </span>
+  <input id="k8" type="number" placeholder="k">
+  <span> будут отмеченными: </span>
+  <input id="r8" type="number" placeholder="r">
+  <span></span>
+  <button type="button" onclick="onClick3_urn2()">Вычислить</button>
+  <input id="result8" placeholder="result">
+</div>
+</body>
+
+<script>
+  var n;
+  var k;
+  var formula;
+  function onClick1(){
+    n = Number(document.getElementById('n1').value);
+    k = Number(document.getElementById('k1').value);
+    document.getElementById('result1').value = arrangementWithoutRepetition(n, k);
+  }
+  function onClick2(){
+    n = Number(document.getElementById('n2').value);
+    document.getElementById('result2').value = permutationWithoutRepetition(n);
+  }
+  function onClick3(){
+    n = Number(document.getElementById('n3').value);
+    k = Number(document.getElementById('k3').value);
+    document.getElementById('result3').value = combinationWithoutRepetition(n, k);
+  }
+
+  function onClick3_urn(){
+    let n = Number(document.getElementById('n7').value);
+    let mm = Number(document.getElementById('m7').value);
+    let k = Number(document.getElementById('k7').value);
+
+    document.getElementById('result7').value =
+            combinationWithoutRepetition(mm, k) / combinationWithoutRepetition(n, k);
+  }
+
+  function onClick3_urn2(){
+    let n = Number(document.getElementById('n8').value);
+    let m = Number(document.getElementById('m8').value);
+    let k = Number(document.getElementById('k8').value);
+    let r = Number(document.getElementById('r8').value);
+    console.log('n is ' + n);
+    console.log('m is ' + m);
+    console.log("k is " + k);
+    console.log("r is " + r);
+
+    let firstValue = combinationWithoutRepetition(m, r);
+    let secValue = combinationWithoutRepetition(n-m, k-r);
+    let thirthValue = combinationWithoutRepetition(n, k);
+
+    console.log("first value: " + firstValue);
+    console.log("second value: " + secValue);
+    console.log("thirth value: " + thirthValue);
+
+    document.getElementById('result8').value =
+            ((combinationWithoutRepetition(m, r) * combinationWithoutRepetition(n - m, k - r)) / combinationWithoutRepetition(n, k));
+  }
+  function onClick4(){
+    n = Number(document.getElementById('n4').value);
+    k = Number(document.getElementById('k4').value);
+    document.getElementById('result4').value = arrangementWithRepetition(n, k);
+  }
+  function onClick5(){
+
+    k = document.getElementById('permutations5').value.split(",");
+    let numberArray = k.map(function (str) {
+      return +str;
+    });
+
+    let f = 0;
+    numberArray.forEach(function (number) {
+      f+=number;
+    })
+    document.getElementById('n5').value = f;
+    n = Number(document.getElementById('n5').value);
+    document.getElementById('result5').value = permutationWithRepetition(n, k);
+  }
+  function onClick6(){
+    n = Number(document.getElementById('n6').value);
+    k = Number(document.getElementById('k6').value);
+    document.getElementById('result6').value = combinationWithRepetition(n, k);
+  }
+
+  function factorial(n) {
+    if ((0 === n) || (1 === n)){
+      return 1;
+    } else {
+      let number = n;
+      let result = 1;
+      while (number > 0) {
+        result *= number;
+        number--;
+      }
+      return result;
+    }
+  }
+
+  // Функция для вычисления размещения без повторений A(n, k)
+  function arrangementWithoutRepetition(n, k) {
+    // Проверка на входные данные
+    if (n < 0 || k < 0 || n < k) {
+      return "Ошибка: n и k должны быть неотрицательными числами, причем n должно быть больше или равно k";
+    }
+
+    // Вычисление формулы n! / (n - k)!
+    return factorial(n) / factorial(n - k);
+  }
+
+  // Функция для вычисления перестановки без повторений P(n, k)
+  function permutationWithoutRepetition(n) {
+    if (n < 0) {
+      return "Ошибка: n должно быть неотрицательным числом";
+    }
+
+    // Вычисление формулы n!
+    return factorial(n);
+  }
+
+  // Функция для вычисления сочетания без повторений C(n, k)
+  function combinationWithoutRepetition(n, k) {
+    // Проверка на входные данные
+    if (n < 0 ||  k < 0 || n < k) {
+      return "Ошибка: n и k должны быть неотрицательными числами, причем n должно быть больше или равно k";
+    } else {
+      // Вычисление формулы n! / (k! * (n - k)!)
+      return factorial(n) / (factorial(k) * factorial(n - k));
+    }
+  }
+
+  // Функция для вычисления перестановки с повторениями
+  function permutationWithRepetition(n, repetitions) {
+    // Проверка на входные данные
+    if (n < 0) {
+      return "Ошибка: n должно быть неотрицательным числом";
+    }
+
+    if (repetitions.some(count => count < 0)) {
+      return "Ошибка: количество повторений должно быть неотрицательным числом";
+    }
+
+    // Вычисление формулы n!/(n1!*n2!*...nk!)
+    // let numberArray = repetitions.map(function (str) {
+    //   return +str;
+    // });
+    // console.log(numberArray);
+    // let f = 0;
+    // numberArray.forEach(function (number) {
+    //   f = f * factorial(number);
+    //
+    // })
+    // console.log(f);
+    let denominator = repetitions.reduce((accumulator, currentValue) => accumulator * factorial(currentValue), 1);
+    console.log(denominator);
+    console.log(factorial(n));
+    return factorial(n) / denominator;
+  }
+  // Функция для вычисления сочетания с повторениями
+  function combinationWithRepetition(n, k) {
+    // Проверка на входные данные
+    if (n < 0 || k < 0) {
+      return "Ошибка: n и k должны быть неотрицательными числами";
+    }
+
+    // Вычисление формулы (n+k-1)! / (k!*(n-1)!)
+    return factorial(n + k - 1) / (factorial(k) * factorial(n - 1));
+  }
+  // Функция для вычисления размещения с повторениями
+  function arrangementWithRepetition(n, k) {
+    // Проверка на входные данные
+    if (n < 0 || k < 0) {
+      return "Ошибка: n и k должны быть неотрицательными числами";
+    }
+
+    // Вычисление формулы n^k
+    return Math.pow(n, k);
+  }
+</script>
+
+</html>

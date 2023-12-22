@@ -1,0 +1,17 @@
+org/example/UtilityClasses/ConnectionContainer.class
+org/example/Entities/Task.class
+org/example/DAO/DAO.class
+org/example/DAO/TextDAO.class
+org/example/Servlets/TypingServlet.class
+org/example/Entities/Text.class
+org/example/Entities/TypingProcess.class
+org/example/UtilityClasses/GetRandomText.class
+org/example/Servlets/LoginServlet.class
+org/example/UtilityClasses/JSONReader.class
+org/example/Entities/Category.class
+org/example/Entities/User.class
+org/example/DAO/TypingProcessDAO.class
+org/example/DAO/UserDAO.class
+org/example/UtilityClasses/Cryptographer.class
+org/example/DAO/TaskDAO.class
+org/example/Servlets/RegistrationServlet.class
